@@ -1,0 +1,91 @@
+/* --- 画面全体の大枠 --- */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* --- 左右に分けるレイアウト（Flexbox） --- */
+.dashboard-content {
+  display: flex;
+  gap: 20px; /* 左右のブロックの隙間 */
+  flex-wrap: wrap; /* 画面が狭いときは自動で縦並びにする */
+}
+
+/* 左側（アカウント一覧）の幅を設定 */
+.column-left {
+  flex: 1; /* 比率1 */
+  min-width: 300px;
+}
+
+/* 右側（グラフ）の幅を広く設定 */
+.column-right {
+  flex: 2; /* 比率2（左の倍の広さ） */
+  min-width: 500px;
+}
+
+/* --- カードのデザイン --- */
+.card {
+  background-color: #242424; /* ダークな背景色 */
+  border-radius: 10px; /* 角を丸くする */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 影をつける */
+  height: 100%;
+}
+
+/* --- リスト（箇条書き）のデザイン --- */
+.account-list {
+  list-style: none; /* デフォルトの黒丸を消す */
+  padding: 0;
+  margin: 0;
+}
+
+.account-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #444; /* 下線を引いて区切る */
+  text-align: left;
+}
+
+.account-list li:last-child {
+  border-bottom: none; /* 最後の線は消す */
+}
+
+/* --- 下段のフルサイズコンテナ --- */
+.dashboard-row-bottom {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* --- グラフの色使いを整える --- */
+.recharts-default-legend {
+  color: #fff !important;
+}
+
+/* --- リソース一覧テーブルのデザイン --- */
+.resource-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.resource-table th, 
+.resource-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #444;
+  text-align: left;
+}
+
+.resource-table th {
+  background-color: #333; /* ヘッダーだけ少し色を変える */
+  font-weight: bold;
+}
+
+.resource-table tr:hover {
+  background-color: #3a3a3a; /* マウスを乗せると行が少し明るくなる */
+}
