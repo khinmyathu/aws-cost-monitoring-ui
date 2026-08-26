@@ -1,0 +1,18 @@
+{
+  "title": "FinOps Dashboard 🚀",
+  "dailyCost": "Daily Cost by Service (USD)",
+  "costRatio": "Cost Distribution",
+  "awsAccount": "AWS Accounts",
+  "budget": "💰 Monthly Budget",
+  "alert": "🚨 Alerts",
+  "resourceList": "Resource Inventory",
+  "resolve": "Resolve",
+  "noAlerts": "No open alerts at the moment 🎉",
+  "table": {
+    "id": "ID",
+    "name": "Resource Name",
+    "service": "Service",
+    "region": "Region",
+    "status": "Status"
+  }
+}

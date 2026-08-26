@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './App.css';
 import AccountList from './components/AccountList';
 import DailyCostBarChart from './components/DailyCostBarChart';
@@ -10,6 +11,14 @@ import AlertList from './components/AlertList';
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://aws-cost-monitoring-api.onrender.com';
 
 function App() {
+  // 1. 翻訳フックと関数はここに配置します！
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const nextLang = i18n.language === 'ja' ? 'en' : 'ja';
+    i18n.changeLanguage(nextLang);
+  };
+
   const [accounts, setAccounts] = useState([]);
   const [dailyCosts, setDailyCosts] = useState([]);
   const [resources, setResources] = useState([]);
@@ -53,44 +62,47 @@ function App() {
 
   return (
     <div className="dashboard-container" style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-      <header className="dashboard-header" style={{ marginBottom: '30px', textAlign: 'center' }}>
-        <h1>FinOps Dashboard 🚀</h1>
+      {/* ヘッダー部分にボタンを追加し、タイトルを t('title') に変更 */}
+      <header className="dashboard-header" style={{ marginBottom: '30px', textAlign: 'center', position: 'relative' }}>
+        <h1>{t('title')}</h1>
+        <button 
+          onClick={toggleLanguage} 
+          style={{ position: 'absolute', right: '10px', top: '10px', padding: '8px 16px', cursor: 'pointer', borderRadius: '4px', backgroundColor: '#3b3b4f', color: '#fff', border: '1px solid #555' }}
+        >
+          🌐 {i18n.language === 'ja' ? 'English' : '日本語'}
+        </button>
       </header>
       
-      {/* 1段目: グラフセクション (横並び) */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '30px', flexWrap: 'wrap' }}>
         <div style={{ flex: '1 1 48%', minWidth: '400px' }}>
-          <h2>サービス別 日次コスト (USD)</h2>
+          <h2>{t('dailyCost')}</h2>
           <DailyCostBarChart dailyCosts={dailyCosts} />
         </div>
         <div style={{ flex: '1 1 48%', minWidth: '400px' }}>
-          <h2>コスト割合</h2>
+          <h2>{t('costRatio')}</h2>
           <CostPieChart dailyCosts={dailyCosts} />
         </div>
       </div>
 
-      {/* 2段目: 予算・アラート・アカウント情報 (3列横並び) */}
       <div style={{ display: 'flex', gap: '20px', marginBottom: '30px', flexWrap: 'wrap' }}>
         <div style={{ flex: '1 1 30%', minWidth: '250px' }}>
-          <h2>AWSアカウント</h2>
+          <h2>{t('awsAccount')}</h2>
           <AccountList accounts={accounts} />
         </div>
         <div style={{ flex: '1 1 30%', minWidth: '250px' }}>
-          <h2>💰 月間コスト予算</h2>
+          <h2>{t('budget')}</h2>
           <BudgetList budgets={budgets} />
         </div>
         <div style={{ flex: '1 1 30%', minWidth: '250px' }}>
-          <h2 style={{ color: '#ff4d4f' }}>🚨 アラート</h2>
+          <h2 style={{ color: '#ff4d4f' }}>{t('alert')}</h2>
           <AlertList alerts={alerts} onResolve={handleResolveAlert} />
         </div>
       </div>
 
-      {/* 3段目: リソース詳細 (全幅) */}
       <div style={{ width: '100%' }}>
-        <h2>リソース詳細一覧</h2>
+        <h2>{t('resourceList')}</h2>
         <ResourceTable resources={resources} />
       </div>
-
     </div>
   );
 }

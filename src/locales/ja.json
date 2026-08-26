@@ -1,0 +1,18 @@
+{
+  "title": "FinOps Dashboard 🚀",
+  "dailyCost": "サービス別 日次コスト (USD)",
+  "costRatio": "コスト割合",
+  "awsAccount": "AWSアカウント",
+  "budget": "💰 月間コスト予算",
+  "alert": "🚨 アラート",
+  "resourceList": "リソース詳細一覧",
+  "resolve": "確認済みにする",
+  "noAlerts": "現在、未確認のアラートはありません 🎉",
+  "table": {
+    "id": "ID",
+    "name": "リソース名",
+    "service": "サービス",
+    "region": "リージョン",
+    "status": "ステータス"
+  }
+}
