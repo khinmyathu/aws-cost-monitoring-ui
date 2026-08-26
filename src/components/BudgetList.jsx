@@ -1,20 +1,27 @@
-export default function BudgetList({ budgets }) {
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+
+const BudgetList = ({ budgets }) => {
+  const { t } = useTranslation(); // 翻訳フックを追加
+
+  if (!budgets || budgets.length === 0) {
+    return <p>予算データがありません</p>;
+  }
+
   return (
-    <div className="card">
-      {budgets.length === 0 ? (
-        <p>読込中...</p>
-      ) : (
-        <ul className="budget-list" style={{ listStyle: 'none', padding: 0 }}>
-          {budgets.map((budget) => (
-            <li key={budget.id} style={{ borderBottom: '1px solid #444', padding: '10px 0' }}>
-              <strong>{budget.budgetName}</strong><br />
-              <span style={{ fontSize: '0.85em', color: '#aaa' }}>
-                予算額: ${budget.budgetAmount} (警告閾値: {budget.warningThreshold}%)
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div>
+      {budgets.map(budget => (
+        <div key={budget.id} style={{ marginBottom: '15px', paddingBottom: '15px', borderBottom: '1px solid #444' }}>
+          {/* DBのデータ(予算名)を翻訳 */}
+          <h4 style={{ margin: '0 0 5px 0' }}>{t(budget.budgetName)}</h4>
+          <div style={{ fontSize: '0.9em', color: '#ccc' }}>
+            {/* ラベルを翻訳 */}
+            {t('budgetAmount')}: ${budget.budgetAmount} ({t('warningThreshold')}: {budget.warningThreshold}%)
+          </div>
+        </div>
+      ))}
     </div>
   );
-}
+};
+
+export default BudgetList;

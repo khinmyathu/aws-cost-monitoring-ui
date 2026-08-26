@@ -8,6 +8,13 @@
   "resourceList": "Resource Inventory",
   "resolve": "Resolve",
   "noAlerts": "No open alerts at the moment 🎉",
+  "budgetAmount": "Budget",
+  "warningThreshold": "Warning",
+  "serviceLabel": "Service",
+  "actualValue": "Actual",
+  "threshold": "Threshold",
+  "月間全体予算": "Production Budget",
+  "開発環境 抑制予算": "Dev Budget",
   "table": {
     "id": "ID",
     "name": "Resource Name",

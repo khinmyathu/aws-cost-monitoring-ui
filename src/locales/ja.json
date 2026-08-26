@@ -8,6 +8,13 @@
   "resourceList": "リソース詳細一覧",
   "resolve": "確認済みにする",
   "noAlerts": "現在、未確認のアラートはありません 🎉",
+  "budgetAmount": "予算額",
+  "warningThreshold": "警告閾値",
+  "serviceLabel": "サービス",
+  "actualValue": "実績値",
+  "threshold": "閾値",
+  "月間全体予算": "月間全体予算",
+  "開発環境 抑制予算": "開発環境 抑制予算",
   "table": {
     "id": "ID",
     "name": "リソース名",
