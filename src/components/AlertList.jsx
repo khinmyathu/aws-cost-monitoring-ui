@@ -1,33 +1,53 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import './AlertList.css';
 
-const AlertList = ({ alerts, onResolve }) => {
-  const { t } = useTranslation(); // 翻訳フックを追加
+export default function AlertList({ alerts }) {
+  const { t } = useTranslation();
 
   if (!alerts || alerts.length === 0) {
-    return <p>{t('noAlerts')}</p>;
-  }
-
-  return (
-      <div>
-        {alerts.map(alert => (
-          <div key={alert.id} style={{ borderLeft: '4px solid #ff4d4f', padding: '10px', marginBottom: '10px', backgroundColor: '#2a2a35' }}>
-            {/* t('serviceLabel') に置き換え */}
-            <div style={{ fontWeight: 'bold' }}>{t('serviceLabel')}: {alert.serviceCode}</div>
-            <div style={{ fontSize: '0.9em', color: '#ccc', margin: '5px 0' }}>
-              {/* t('actualValue') と t('threshold') に置き換え */}
-              {t('actualValue')}: ${alert.actualValue} / {t('threshold')}: ${alert.thresholdValue}
-            </div>
-            <button 
-              onClick={() => onResolve(alert.id)}
-              style={{ padding: '4px 8px', fontSize: '0.8em', cursor: 'pointer', backgroundColor: 'transparent', border: '1px solid #888', color: '#fff', borderRadius: '4px' }}
-            >
-              {t('resolve')}
-            </button>
-          </div>
-        ))}
+    return (
+      <div className="card alert-list-empty">
+        {t('noAlerts') || '現在、未確認のアラートはありません 🎉'}
       </div>
     );
-};
+  }
 
-export default AlertList;
+  const renderStatusBadge = (alert) => {
+    const isWarning = alert.alertType === 'WARNING';
+    return (
+      <span className={`alert-status-badge ${isWarning ? 'warning' : 'exceeded'}`}>
+        {isWarning ? (t('statusWarning') || '警告') : (t('statusExceeded') || '超過')}
+      </span>
+    );
+  };
+
+  return (
+    <div className="card alert-list-card">
+      <table className="alert-table">
+        <thead>
+          <tr className="alert-table-head-row">
+            <th>{t('actualValue') || '実績値'}</th>
+            <th>{t('threshold') || '閾値'}</th>
+            <th>{t('status') || '状態'}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {alerts.map((alert) => (
+            <tr key={alert.id} className="alert-table-row">
+              <td className="alert-actual-value">
+                ${Number(alert.actualValue || alert.actual_value).toFixed(2)}
+              </td>
+              <td className="alert-threshold-value">
+                ${Number(alert.thresholdValue || alert.threshold_value).toFixed(2)}
+              </td>
+              <td className="alert-status-cell">
+                {renderStatusBadge(alert)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

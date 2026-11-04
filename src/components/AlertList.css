@@ -1,0 +1,67 @@
+.alert-list-empty {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  background-color: #1e1e24;
+  border-radius: 8px;
+}
+
+.alert-list-card {
+  padding: 0;
+  overflow-x: auto;
+  background-color: #1e1e24;
+  border-radius: 8px;
+}
+
+.alert-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.alert-table-head-row {
+  border-bottom: 1px solid #333;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.alert-table th {
+  padding: 16px 20px;
+}
+
+.alert-table-row {
+  border-bottom: 1px solid #2a2a35;
+}
+
+.alert-actual-value {
+  padding: 16px 20px;
+  color: #ff7875;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+.alert-threshold-value {
+  padding: 16px 20px;
+  color: #ccc;
+}
+
+.alert-status-cell {
+  padding: 16px 20px;
+}
+
+.alert-status-badge {
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.alert-status-badge.warning {
+  background-color: #faad14;
+}
+
+.alert-status-badge.exceeded {
+  background-color: #ff4d4f;
+}

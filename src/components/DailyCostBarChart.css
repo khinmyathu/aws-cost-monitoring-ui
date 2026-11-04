@@ -1,0 +1,10 @@
+.bar-chart-card {
+  background-color: #1e1e24;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.bar-chart-wrapper {
+  height: 350px;
+  width: 100%;
+}

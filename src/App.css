@@ -1,91 +1,160 @@
-/* --- 画面全体の大枠 --- */
 .dashboard-container {
+  padding: 24px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: sans-serif;
 }
 
 .dashboard-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.header-spacer {
+  width: 130px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-action {
+  width: 130px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lang-btn {
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #2a2a35;
+  color: #fff;
+  border: 1px solid #555;
+  font-size: 0.85em;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.control-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.control-label {
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.account-select {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #2a2a35;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.95em;
+  outline: none;
+}
+
+.section-barchart {
   margin-bottom: 30px;
 }
 
-/* --- 左右に分けるレイアウト（Flexbox） --- */
-.dashboard-content {
+.section-title {
+  margin-bottom: 12px;
+}
+
+.middle-grid {
+  margin-bottom: 35px;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(380px, 1.8fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.indicator-column {
   display: flex;
-  gap: 20px; /* 左右のブロックの隙間 */
-  flex-wrap: wrap; /* 画面が狭いときは自動で縦並びにする */
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* 左側（アカウント一覧）の幅を設定 */
-.column-left {
-  flex: 1; /* 比率1 */
-  min-width: 300px;
+.indicator-card {
+  background-color: #1e1e24;
+  border-radius: 8px;
+  padding: 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* 右側（グラフ）の幅を広く設定 */
-.column-right {
-  flex: 2; /* 比率2（左の倍の広さ） */
-  min-width: 500px;
+.indicator-label {
+  color: #aaa;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
 }
 
-/* --- カードのデザイン --- */
-.card {
-  background-color: #242424; /* ダークな背景色 */
-  border-radius: 10px; /* 角を丸くする */
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 影をつける */
-  height: 100%;
-}
-
-/* --- リスト（箇条書き）のデザイン --- */
-.account-list {
-  list-style: none; /* デフォルトの黒丸を消す */
-  padding: 0;
-  margin: 0;
-}
-
-.account-list li {
-  padding: 12px 0;
-  border-bottom: 1px solid #444; /* 下線を引いて区切る */
-  text-align: left;
-}
-
-.account-list li:last-child {
-  border-bottom: none; /* 最後の線は消す */
-}
-
-/* --- 下段のフルサイズコンテナ --- */
-.dashboard-row-bottom {
-  margin-top: 20px;
-  width: 100%;
-}
-
-/* --- グラフの色使いを整える --- */
-.recharts-default-legend {
-  color: #fff !important;
-}
-
-/* --- リソース一覧テーブルのデザイン --- */
-.resource-table {
-  width: 100%;
-  border-collapse: collapse;
+.indicator-value {
   color: #fff;
-}
-
-.resource-table th, 
-.resource-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #444;
-  text-align: left;
-}
-
-.resource-table th {
-  background-color: #333; /* ヘッダーだけ少し色を変える */
+  font-size: 1.45em;
   font-weight: bold;
 }
 
-.resource-table tr:hover {
-  background-color: #3a3a3a; /* マウスを乗せると行が少し明るくなる */
+.budget-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.budget-amount {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #52c41a;
+}
+
+.budget-threshold {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.budget-not-set {
+  color: #888;
+}
+
+.pie-chart-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-alert {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.alert-heading {
+  color: #ff4d4f;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
 }
