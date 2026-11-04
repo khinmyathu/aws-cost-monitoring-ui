@@ -1,16 +1,46 @@
-# React + Vite
+--
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+### フロントエンド用 README.md テンプレート（English & Japanese）
 
-Currently, two official plugins are available:
+`cloud-monitor-ui` 直下の `README.md` 用テンプレートです。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```markdown
+# AWS FinOps & Cost Monitoring Dashboard (UI)
 
-## React Compiler
+[English](#english) | [日本語](#japanese)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+<a name="english"></a>
+## English
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+A responsive modern web frontend built with **React**, designed to visualize AWS infrastructure costs and cloud resource health.
+
+### Architecture & Delivery
+- **Frontend Framework**: React / Vite
+- **Hosting & Distribution**: Amazon S3 (Static Website Hosting) + Amazon CloudFront (CDN)
+- **DNS & SSL**: Amazon Route 53 + AWS Certificate Manager (ACM)
+- **API Communication**: REST API via HTTPS to backend EC2
+
+### Key Features
+- **Cost Trends**: Interactive charts showing daily and monthly cloud expenditure.
+- **Alert Dashboard**: Visual indicators for threshold violations.
+- **Responsive UI**: Optimized for both desktop and mobile viewports.
+
+---
+
+<a name="japanese"></a>
+## 日本語
+
+**React** を使用して構築された、AWS クラウド利用コストとリソース状態を直感的に可視化するダッシュボード UI です。
+
+### インフラ・配信構成
+- **フロントエンド**: React / Vite
+- **ホスティング・CDN**: Amazon S3（静的ウェブホスティング） + Amazon CloudFront
+- **ドメイン・SSL**: Amazon Route 53 + AWS Certificate Manager (ACM) による HTTPS 通信
+- **バックエンド通信**: HTTPS 経由で EC2 上の Spring Boot API と連携
+
+### 主な機能
+- **コスト可視化**: 日次・月次の利用額推移グラフ表示
+- **アラート確認**: コスト上限や異常値の視覚的アラート通知
+- **レスポンシブ対応**: デスクトップ・モバイル双方で最適化されたレイアウト
